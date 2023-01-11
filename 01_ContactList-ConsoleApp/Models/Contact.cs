@@ -9,7 +9,7 @@ namespace _01_ContactList_ConsoleApp.Models
 {
     public class Contact : IContact
     {
-        public List<Contact> ContactList { get; set; } = new List<Contact>();
+       
 
         public string FirstName { get ; set ; } 
         public string LastName { get ; set ; }

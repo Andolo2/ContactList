@@ -2,14 +2,24 @@
 
 namespace _01_ContactList_ConsoleApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
 
             Menu runApp = new Menu();
-            runApp.MenySystem();
+        
+
+            runApp.FilePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
+
+            while (true)
+            {
+
+                runApp.MenySystem();
+            }
+          
+
         }
     }
 }
