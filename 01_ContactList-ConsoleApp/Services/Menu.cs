@@ -29,12 +29,12 @@ namespace _01_ContactList_ConsoleApp.Services
 
             PopulateList();
 
-            Console.WriteLine("Choose an option");
+            Console.WriteLine("** Choose an option ** \n");
             Console.WriteLine("[1] Add a contact");
-            Console.WriteLine("[2] Display a Contactr");
-            Console.WriteLine("[3] Display All Contacts");
+            Console.WriteLine("[2] Search - Contact details");
+            Console.WriteLine("[3] Display all Contacts");
             Console.WriteLine("[4] Delete Contact");
-            Console.WriteLine("[5] Press 5 to exit the program");
+            Console.WriteLine("[5] Press 5 to Exit the program");
 
             var userInput = Console.ReadLine();
 
@@ -63,10 +63,25 @@ namespace _01_ContactList_ConsoleApp.Services
         private void DeleteContact()
         {
 
-            Console.WriteLine("Enter a name to remove"); 
-            var nameToRemove = Console.ReadLine();
-            ContactList.RemoveAll(s => s.FirstName == nameToRemove);
-            file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList));
+            try 
+            {
+
+
+
+
+                Console.WriteLine("Enter a name to remove");
+                string nameToRemove = Console.ReadLine();
+               
+
+                ContactList.RemoveAll(s => s.FirstName.Contains(nameToRemove));
+
+
+                file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList));
+            }
+            catch
+            {
+                Console.WriteLine("Wrong input, try again");
+            }
         }
 
         private void ExitProgram()
@@ -78,7 +93,7 @@ namespace _01_ContactList_ConsoleApp.Services
 
         private void DisplayAllContacts()
         {
-
+            Console.Clear();
         
             var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
 
@@ -100,8 +115,16 @@ namespace _01_ContactList_ConsoleApp.Services
 
             foreach (var filter in Items.Where(x => x.FirstName.Contains(searchPhrase)))
             {
-                PopulateList();
-                Console.WriteLine("FirstName: {0} \r\n Lastname: {1} \r\n PhoneNumber: {2} \r\n Email: {3} \r\n Adress: {4} \r\n Postalcode: {5} \r\n city: {6}", filter.FirstName, filter.LastName, filter.PhoneNumber, filter.Email, filter.Adress, filter.Adress, filter.PostalCode, filter.City);
+                if (string.IsNullOrEmpty(searchPhrase))
+                {
+                    Console.WriteLine("Not found, try again");
+                }
+                else
+                {
+                    PopulateList();
+                    Console.WriteLine("FirstName: {0} \r\n Lastname: {1} \r\n PhoneNumber: {2} \r\n Email: {3} \r\n Adress: {4} \r\n Postalcode: {5} \r\n city: {6}", filter.FirstName, filter.LastName, filter.PhoneNumber, filter.Email, filter.Adress, filter.Adress, filter.PostalCode, filter.City);
+
+                }
             }
 
 
