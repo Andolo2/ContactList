@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,19 @@ namespace _02_ContactList_WpfApp.ViewModels
     {
         [ObservableProperty]
         private ObservableObject currentViewModel;
+
+
+        [RelayCommand]
+        private void GoToAddContact() // => currentViewModel = new AddContactViewModel();
+        {
+            CurrentViewModel = new AddContactViewModel();
+        }
+
+        [RelayCommand]
+        private void GoToAddContacts() // => currentViewModel = new ContactsViewModel();
+        {
+            CurrentViewModel = new ContactsViewModel();
+        }
 
         public MainViewModel()
         {

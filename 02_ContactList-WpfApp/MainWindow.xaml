@@ -15,17 +15,22 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="0">
+            <Button Command="{Binding GoToAddContactsCommand}" Content="Display Contacts" Padding="5" Margin="5"/>
+            <Button Command="{Binding GoToAddContactCommand}" Content="Add Contacts" Padding="5" Margin="5"/>
+         
+        </StackPanel>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="1">
             <ListView Margin="30 30 30 30">
-                <ListBoxItem Content="hejsan"/>
+               
                 <ContentControl Content="{Binding CurrentViewModel}">
                     <ContentControl.Resources>
                         <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
                             <views:ContactView></views:ContactView>
                         </DataTemplate>
                         <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
-                            <views:ContactView></views:ContactView>
+                            <views:AddContactView></views:AddContactView>
                         </DataTemplate>
                     </ContentControl.Resources>
                 </ContentControl>
