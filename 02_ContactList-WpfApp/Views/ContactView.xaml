@@ -24,14 +24,21 @@
 
     <TextBlock Grid.Row="0" Text="{Binding PageTigle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
 
-    <ListView Grid.Row="1" ItemsSource="{Binding Contacts}" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                    <TextBlock Text="{Binding FirstName}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        <ListView Grid.Row="1" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedName}">
+        <ListView.ItemTemplate >
+            <DataTemplate  >
+                    
+                        <TextBlock Text="{Binding FirstName}"  />
+                  
+                    
+                   
+                </DataTemplate>
+               
 
+            </ListView.ItemTemplate>
+    </ListView>
+        <Button Command="{Binding DeleteCommand }" Content="Remove Contact" Padding="8" />
+       
     </Grid>
 
 </UserControl>

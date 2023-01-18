@@ -23,14 +23,14 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="{Binding PageTitle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
+        <TextBlock Grid.Row="0" Text="{Binding PageTigle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="Add a Contact" />
             <TextBox Text="{Binding Contact}" Padding="5" Margin="0 5 0 25" />
             <Button Command="{Binding AddCommand}" Content="ADD Contact" Padding="8" />
             
-            
+
         </StackPanel>
     </Grid>
 </UserControl>

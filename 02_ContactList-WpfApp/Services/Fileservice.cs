@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace _02_ContactList_WpfApp.Services
 {
@@ -30,7 +31,7 @@ namespace _02_ContactList_WpfApp.Services
             catch { contact = new List<Contact>(); }
         }
 
-        private void SaveToFile()
+        public void SaveToFile()
         {
             using var sw = new StreamWriter(filePath);
             sw.WriteLine(JsonConvert.SerializeObject(contact));
@@ -42,8 +43,22 @@ namespace _02_ContactList_WpfApp.Services
             SaveToFile();
         }
 
+        public void RemoveFromList(Contact contacts)
+        {
+            contact.Remove(contacts);
+          
+            SaveToFile();
+
+
+            
+
+        }
+
+
+
         public ObservableCollection<Contact> Contact()
         {
+            ReadFromFile();
             var items = new ObservableCollection<Contact>();
             foreach (var contacts in contact)
                 items.Add(contacts);

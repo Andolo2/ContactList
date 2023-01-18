@@ -2,6 +2,7 @@
 using _02_ContactList_WpfApp.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,13 @@ namespace _02_ContactList_WpfApp.ViewModels
         private void Add()
         {
             FileService.AddToList(new Contact { FirstName = contact });
+            FileService.AddToList(new Contact { LastName = contact });
+            FileService.AddToList(new Contact { Email = contact });
             contact = string.Empty;
         }
+
+        
+
+        
     }
 }
