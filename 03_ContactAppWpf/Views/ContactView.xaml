@@ -18,33 +18,27 @@
     </Grid>-->
     <Grid Margin="40">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-         </Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition />
+    </Grid.RowDefinitions>
 
     <TextBlock Grid.Row="0" Text="{Binding PageTigle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
-     
-        <TextBlock>World</TextBlock>
+
         <ListView Grid.Row="1" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedName}">
-            <ListView.ItemTemplate  >
-                <DataTemplate   >
-                    <Border >
-                        <StackPanel >
-                            <TextBlock Text="{Binding FirstName}"  />
-                            <TextBlock Text="{Binding LastName}"  />
-                            <TextBlock Text="{Binding Email}"  />
-                        </StackPanel>
-                    </Border>
+        <ListView.ItemTemplate >
+            <DataTemplate  >
+                    
+                        <TextBlock Text="{Binding FirstName}"  />
+                  
+                    
+                   
                 </DataTemplate>
-                
+               
+
             </ListView.ItemTemplate>
-            
-            
-        </ListView>
-    <Button Command="{Binding DeleteCommand }" Content="Remove Contact" Padding="8" /> 
-
-
+    </ListView>
+        <Button Command="{Binding DeleteCommand }" Content="Remove Contact" Padding="8" />
+       
     </Grid>
-
 
 </UserControl>

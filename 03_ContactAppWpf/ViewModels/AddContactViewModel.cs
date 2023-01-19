@@ -26,21 +26,13 @@ namespace _02_ContactList_WpfApp.ViewModels
         [ObservableProperty]
         private string contact = string.Empty;
 
-        [ObservableProperty]
-        private string lastname = string.Empty;
-        
-
-
-
         [RelayCommand]
         private void Add()
         {
-            FileService.AddToList(new Contact() {FirstName = contact, LastName = lastname, Email = contact, PhoneNumber = contact, Adress = contact,PostalCode = contact, City=contact,  }  );
-    
+            FileService.AddToList(new Contact { FirstName = contact });
+            FileService.AddToList(new Contact { LastName = contact });
+            FileService.AddToList(new Contact { Email = contact });
             contact = string.Empty;
-
-            
-
         }
 
         

@@ -7,14 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace _02_ContactList_WpfApp.Services
 {
     public class Fileservice
     {
-        private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\WpfContact.json";
+        private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\03ContactApplication.json";
         private List<Contact> contact;
 
         public Fileservice()
@@ -46,32 +45,12 @@ namespace _02_ContactList_WpfApp.Services
 
         public void RemoveFromList(Contact contacts)
         {
-            //contact.Remove(contacts);
-            //SaveToFile();
+            contact.Remove(contacts);
+          
+            SaveToFile();
 
-       
 
-
-            foreach (var delete in contact)
-            {
-               if(contact != null)
-                {
-                    try
-                    {
-                        contact.Remove(delete);
-                        SaveToFile();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Delete error");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("null");
-                }
-
-            }
+            
 
         }
 
@@ -86,7 +65,5 @@ namespace _02_ContactList_WpfApp.Services
 
             return items;
         }
-
-        
     }
 }

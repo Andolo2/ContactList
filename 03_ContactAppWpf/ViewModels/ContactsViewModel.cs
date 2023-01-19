@@ -5,7 +5,6 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
@@ -39,33 +38,21 @@ namespace _02_ContactList_WpfApp.ViewModels
         private ObservableCollection<Contact> contacts;
 
 
-       
-        
 
         [RelayCommand]
-        private void Delete(Contact contacts)
+        private void Delete()
         {
+
+
+            MessageBox.Show("Button pressed");
+
 
             if (SelectedName != null)
             {
-                FileService.RemoveFromList(contacts);
-
+                Contacts.Remove(SelectedName);
+                FileService.SaveToFile();
+                
             }
-            else
-            {
-                Debug.Write("delete is null");
-            }
-
-            //if (SelectedName != null)
-            //{
-            //    Contacts.Remove(SelectedName);
-            //    FileService.SaveToFile();
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No value");
-            //}
 
         }
     }

@@ -1,4 +1,4 @@
-﻿using _02_ContactList_WpfApp.Models;
+﻿using _03_contactApp_WPF.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,12 +7,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
-namespace _02_ContactList_WpfApp.Services
+namespace _03_contactApp_WPF.Services
 {
-    public class Fileservice
+    class FileService
     {
         private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\WpfContact.json";
         private List<Contact> contact;
@@ -46,33 +44,8 @@ namespace _02_ContactList_WpfApp.Services
 
         public void RemoveFromList(Contact contacts)
         {
-            //contact.Remove(contacts);
-            //SaveToFile();
-
-       
-
-
-            foreach (var delete in contact)
-            {
-               if(contact != null)
-                {
-                    try
-                    {
-                        contact.Remove(delete);
-                        SaveToFile();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Delete error");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("null");
-                }
-
-            }
-
+            contact.Remove(contacts);
+            SaveToFile();
         }
 
 
@@ -86,7 +59,5 @@ namespace _02_ContactList_WpfApp.Services
 
             return items;
         }
-
-        
     }
 }
