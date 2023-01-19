@@ -46,32 +46,32 @@ namespace _02_ContactList_WpfApp.Services
 
         public void RemoveFromList(Contact contacts)
         {
-            //contact.Remove(contacts);
-            //SaveToFile();
-
-       
+            contact.Remove(contacts);
+            SaveToFile();
 
 
-            foreach (var delete in contact)
-            {
-               if(contact != null)
-                {
-                    try
-                    {
-                        contact.Remove(delete);
-                        SaveToFile();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Delete error");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("null");
-                }
 
-            }
+
+            //foreach (var delete in contact)
+            //{
+            //   if(contact != null)
+            //    {
+            //        try
+            //        {
+            //            contact.Remove(delete);
+            //            SaveToFile();
+            //        }
+            //        catch
+            //        {
+            //            MessageBox.Show("Delete error");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("null");
+            //    }
+
+            //}
 
         }
 

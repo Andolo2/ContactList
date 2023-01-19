@@ -45,27 +45,20 @@ namespace _02_ContactList_WpfApp.ViewModels
         [RelayCommand]
         private void Delete(Contact contacts)
         {
-
-            if (SelectedName != null)
-            {
-                FileService.RemoveFromList(contacts);
-
-            }
-            else
-            {
-                Debug.Write("delete is null");
-            }
-
+            FileService.RemoveFromList(contacts);
             //if (SelectedName != null)
             //{
-            //    Contacts.Remove(SelectedName);
-            //    FileService.SaveToFile();
+            //    FileService.RemoveFromList(contacts);
 
             //}
             //else
             //{
-            //    MessageBox.Show("No value");
+            //    Debug.Write("delete is null");
             //}
+
+
+
+
 
         }
     }

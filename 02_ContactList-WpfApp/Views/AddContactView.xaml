@@ -24,12 +24,16 @@
             <TextBox Text="{Binding Contact}" Padding="2" Margin="0 1 0 10" />
             <TextBlock Text="Add a Lastname" />
             <TextBox Text="{Binding Lastname}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <!--<TextBlock Text="Add a Email" />
-            <TextBox Text="{Binding Contact}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add a Email" />
+            <TextBox Text="{Binding Email}" Width="200" Padding="2" Margin="0 1 0 10" />
             <TextBlock Text="Add a Phonenumber" />
-            <TextBox Text="{Binding Contact}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a Adress" />
-            <TextBox Text="{Binding Contact}" Width="200" Padding="2" Margin="0 1 0 10" />-->
+            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add an adress" />
+            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add a postalcode" />
+            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add a city" />
+            <TextBox Text="{Binding City}" Width="200" Padding="2" Margin="0 1 0 10" />
             <Button Command="{Binding AddCommand}" Content="ADD Contact" Padding="8" />
         </StackPanel>
         <StackPanel>

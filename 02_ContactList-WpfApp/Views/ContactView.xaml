@@ -33,6 +33,10 @@
                             <TextBlock Text="{Binding FirstName}"  />
                             <TextBlock Text="{Binding LastName}"  />
                             <TextBlock Text="{Binding Email}"  />
+                            <TextBlock Text="{Binding PhoneNumber}"  />
+                            <TextBlock Text="{Binding Adress}"  />
+                            <TextBlock Text="{Binding PostalCode}"  />
+                            <TextBlock Text="{Binding city}"  />
                         </StackPanel>
                     </Border>
                 </DataTemplate>
