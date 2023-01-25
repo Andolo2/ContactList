@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace _03_CobtactAppWpf.MVVM.ViewModels
 {
-    public class AddContactViewModel : ObservableObject
+    public partial class AddContactViewModel : ObservableObject
     {
+        [ObservableProperty]
+        private string title = "Add Contact";
+
     }
+
+
 }

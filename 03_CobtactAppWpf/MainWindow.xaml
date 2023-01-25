@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_03_CobtactAppWpf"
         xmlns:viewmodels="clr-namespace:_03_CobtactAppWpf.MVVM.ViewModels"
+        xmlns:views="clr-namespace:_03_CobtactAppWpf.MVVM.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -21,10 +22,10 @@
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel }">
-
+                    <views:AddContactView  /> 
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel }">
-                    
+                    <views:ContactsView  /> 
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
