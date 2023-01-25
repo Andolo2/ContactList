@@ -22,7 +22,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" >
+            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}" >
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type models:ContactModel}">
                         <Grid Margin="10">
@@ -46,6 +46,19 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding SelectedContact.FirstName}"/>
+                <TextBlock Text="{Binding SelectedContact.LastName}"/>
+                <TextBlock Text="{Binding SelectedContact.Email}"/>
+                <TextBlock Text="{Binding SelectedContact.PhoneNumber}"/>
+                <TextBlock Text="{Binding SelectedContact.Adress}"/>
+                <TextBlock Text="{Binding SelectedContact.PostalCode}"/>
+                <TextBlock Text="{Binding SelectedContact.City}"/>
+                
+                <Button Command="{Binding RemoveCommand}" Content="Remove"/>
+            </StackPanel>
+            
         </Grid>
     </Grid>
 </UserControl>

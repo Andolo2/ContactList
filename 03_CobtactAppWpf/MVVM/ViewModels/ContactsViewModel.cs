@@ -1,5 +1,7 @@
 ﻿using _03_CobtactAppWpf.MVVM.Models;
+using _03_CobtactAppWpf.MVVM.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,10 +17,15 @@ namespace _03_CobtactAppWpf.MVVM.ViewModels
         private string title = "Contacts";
 
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>()
+        private ObservableCollection<ContactModel> contacts = ContactService.Contacts();
+
+        [ObservableProperty]
+        private ContactModel selectedContact = null!;
+
+        [RelayCommand]
+        public void Remove()
         {
-            new ContactModel() {FirstName = "Kerstin", LastName = "Olofsson", Email = "Voff@hotmail.com"},
-            new ContactModel() {FirstName = "Tida", LastName = "Saarela", Email = "Bapp@hotmail.com"}
-        };
+            ContactService.Remove(SelectedContact);
+        }
     }
 }

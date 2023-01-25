@@ -1,4 +1,5 @@
 ﻿using _03_CobtactAppWpf.MVVM.Models;
+using _03_CobtactAppWpf.MVVM.Services;
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
@@ -31,13 +32,24 @@ namespace _03_CobtactAppWpf.MVVM.Views
         {
             var button = (Button)sender;
             var contact = (ContactModel)button.DataContext;
+            
         }
 
         private void btn_Remove_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
             var contact = (ContactModel)button.DataContext;
+
+            ContactService.Remove(contact);
            
         }
+
+        //private void ListView_Selected(object sender, RoutedEventArgs e)
+        //{
+        //    var ListViewItem = (ListViewItem)sender;
+        //    var contact = (ContactModel)ListViewItem.DataContext;
+
+        //    MessageBox.Show(contact.DisplayName);
+        //}
     }
 }
