@@ -1,8 +1,14 @@
 ﻿using _02_ContactList_WpfApp.Models;
+using _02_ContactList_WpfApp.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,6 +22,8 @@ namespace _02_ContactList_WpfApp.Services
     {
         private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\WpfContact.json";
         private List<Contact> contact;
+      
+    
 
         public Fileservice()
         {
@@ -40,38 +48,44 @@ namespace _02_ContactList_WpfApp.Services
 
         public void AddToList(Contact contacts)
         {
+
             contact.Add(contacts);
             SaveToFile();
         }
 
-        public void RemoveFromList(Contact contacts)
+        
+
+        public void RemoveFromList(Contact SelectedName) //Contact contacts
         {
-            contact.Remove(contacts);
-            SaveToFile();
+          
+
+
+            var itemstoremove = contact.ToList();
+
+           
+
+            foreach (var delete in itemstoremove)
+            {
+                if (contact != null)
+                {
+                    try
+                    {
+                        contact.RemoveAt(0);
+                        SaveToFile();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Delete error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("null");
+                }
 
 
 
-
-            //foreach (var delete in contact)
-            //{
-            //   if(contact != null)
-            //    {
-            //        try
-            //        {
-            //            contact.Remove(delete);
-            //            SaveToFile();
-            //        }
-            //        catch
-            //        {
-            //            MessageBox.Show("Delete error");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("null");
-            //    }
-
-            //}
+            }
 
         }
 

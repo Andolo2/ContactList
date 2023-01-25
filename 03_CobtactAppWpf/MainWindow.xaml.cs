@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _02_ContactList_WpfApp.Views
+namespace _03_CobtactAppWpf
 {
     /// <summary>
-    /// Interaction logic for AddContactView.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class AddContactView : UserControl
+    public partial class MainWindow : Window
     {
-        public AddContactView()
+        public MainWindow()
         {
             InitializeComponent();
-           
         }
     }
 }

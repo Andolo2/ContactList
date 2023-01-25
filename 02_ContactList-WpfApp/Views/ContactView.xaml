@@ -16,39 +16,48 @@
             
         </ListView>
     </Grid>-->
-    <Grid Margin="40">
+    <!--<Grid Margin="40,40,-35,-14">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
-         </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
 
-    <TextBlock Grid.Row="0" Text="{Binding PageTigle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
-     
-        <TextBlock>World</TextBlock>
-        <ListView Grid.Row="1" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedName}">
-            <ListView.ItemTemplate  >
-                <DataTemplate   >
-                    <Border >
-                        <StackPanel >
-                            <TextBlock Text="{Binding FirstName}"  />
-                            <TextBlock Text="{Binding LastName}"  />
-                            <TextBlock Text="{Binding Email}"  />
-                            <TextBlock Text="{Binding PhoneNumber}"  />
-                            <TextBlock Text="{Binding Adress}"  />
-                            <TextBlock Text="{Binding PostalCode}"  />
-                            <TextBlock Text="{Binding city}"  />
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
+        <TextBlock Grid.Row="0"  Text="{Binding PageTigle}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
+
+        <ListView  Grid.Row="1" Width="560" Margin="0,-2,0,64"  ItemsSource="{Binding Contacts}" Grid.RowSpan="2" SelectedItem ="{Binding SelectedName, Mode=TwoWay}"    >
+            <DataTemplate>
+                <ListView.View >
                 
-            </ListView.ItemTemplate>
-            
-            
+                <GridView x:Name="gwForm">
+                    <GridViewColumn  Header="Name" Width="80" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Age"  Width="80" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Mail"  Width="80" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Phonenumber"  Width="80" DisplayMemberBinding="{Binding PhoneNumber}" />
+                    <GridViewColumn Header="Adress"  Width="80" DisplayMemberBinding="{Binding Adress}" />
+                    <GridViewColumn Header="Postalcode"  Width="80" DisplayMemberBinding="{Binding PostalCode}" />
+                    <GridViewColumn Header="City"  Width="80" DisplayMemberBinding="{Binding City}" />
+                 
+                </GridView>
+            </ListView.View>
+                </DataTemplate>
         </ListView>
-    <Button Command="{Binding DeleteCommand }" Content="Remove Contact" Padding="8" /> 
+
+        <Button  x:Name="btn_Remove" Click="Btn_Remove_Click" Content="Remove Contact"  Padding="8" Margin="234,286,397,19" Grid.Row="1" /> --><!--Command="{Binding DeleteCommand }"
 
 
-    </Grid>
+    </Grid>-->
 
+    <ListView ItemsSource="{Binding Contact}">
+        <ListView.ItemTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
+                <Grid>
+                    <StackPanel>
+                        <Button  x:Name="btn_Remove" Click="Btn_Remove_Click" Content="Remove Contact"  Padding="8" Margin="234,286,397,19" Grid.Row="1" /> 
+                        
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </UserControl>

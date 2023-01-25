@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _02_ContactList_WpfApp.Views
+namespace _03_CobtactAppWpf.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for AddContactView.xaml
@@ -23,7 +23,6 @@ namespace _02_ContactList_WpfApp.Views
         public AddContactView()
         {
             InitializeComponent();
-           
         }
     }
 }

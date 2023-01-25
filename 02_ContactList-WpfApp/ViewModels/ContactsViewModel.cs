@@ -1,10 +1,13 @@
 ﻿using _02_ContactList_WpfApp.Models;
 using _02_ContactList_WpfApp.Services;
+using _02_ContactList_WpfApp.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -18,10 +21,11 @@ using System.Windows.Documents;
 
 namespace _02_ContactList_WpfApp.ViewModels
 {
-    public partial class ContactsViewModel : ObservableObject
+    public partial class ContactsViewModel : ObservableObject, INotifyPropertyChanged
     {
         private readonly Fileservice FileService;
         public Contact SelectedName { get; set; }
+        
 
         public ContactsViewModel()
         {
@@ -39,27 +43,23 @@ namespace _02_ContactList_WpfApp.ViewModels
         private ObservableCollection<Contact> contacts;
 
 
-       
-        
+
 
         [RelayCommand]
-        private void Delete(Contact contacts)
+        private void Delete(Contact SelectedName)
         {
-            FileService.RemoveFromList(contacts);
-            //if (SelectedName != null)
-            //{
-            //    FileService.RemoveFromList(contacts);
-
-            //}
-            //else
-            //{
-            //    Debug.Write("delete is null");
-            //}
+            ContactView obj = new ContactView();
 
 
 
+
+
+            FileService.RemoveFromList(SelectedName);
+            
 
 
         }
+
+
     }
 }

@@ -53,7 +53,7 @@ namespace _02_ContactList_WpfApp.ViewModels
         {
             FileService.AddToList(new Contact() {FirstName = contact, LastName = lastname, Email = email, PhoneNumber = phonenumber, Adress = adress, PostalCode = postalcode, City= city,  }  );
     
-            contact = string.Empty;
+            Contact = string.Empty;
 
             
 

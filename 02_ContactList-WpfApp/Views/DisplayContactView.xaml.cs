@@ -1,7 +1,4 @@
-﻿using _02_ContactList_WpfApp.Models;
-using _02_ContactList_WpfApp.ViewModels;
-using CommunityToolkit.Mvvm.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,23 +16,13 @@ using System.Windows.Shapes;
 namespace _02_ContactList_WpfApp.Views
 {
     /// <summary>
-    /// Interaction logic for ContactView.xaml
+    /// Interaction logic for DisplayContactView.xaml
     /// </summary>
-    public partial class ContactView : UserControl
+    public partial class DisplayContactView : UserControl
     {
-        public ContactView()
+        public DisplayContactView()
         {
             InitializeComponent();
-
-
         }
-
-
-        private void Btn_Remove_Click(object sender, RoutedEventArgs e)
-        {
-            var button = (Button)sender;
-            var  contact = (ContactsViewModel)button.DataContext;
-        }
-
     }
 }

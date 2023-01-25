@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using _02_ContactList_WpfApp.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,12 @@ namespace _02_ContactList_WpfApp.ViewModels
         private void GoToAddContacts() // => currentViewModel = new ContactsViewModel();
         {
             CurrentViewModel = new ContactsViewModel();
+        }
+
+        [RelayCommand]
+        private void GoToDisplayContacts() // => currentViewModel = new ContactsViewModel();
+        {
+            CurrentViewModel = new DisplayContactViewModel();
         }
 
         public MainViewModel()
