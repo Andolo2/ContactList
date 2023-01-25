@@ -37,7 +37,7 @@ namespace _03_CobtactAppWpf.MVVM.Views
         {
             var button = (Button)sender;
             var contact = (ContactModel)button.DataContext;
-            MessageBox.Show(contact.DisplayName);
+           
         }
     }
 }
