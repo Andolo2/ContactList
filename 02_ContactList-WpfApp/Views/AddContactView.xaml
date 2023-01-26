@@ -34,7 +34,7 @@
             <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
             <TextBlock Text="Add a city" />
             <TextBox Text="{Binding City}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <Button Command="{Binding AddCommand}" Content="ADD Contact" Padding="8" />
+            <Button Command="{Binding AddContactCommand}" Content="ADD Contact" Padding="8" />
         </StackPanel>
    
     </Grid>

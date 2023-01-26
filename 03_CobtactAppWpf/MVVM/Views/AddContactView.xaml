@@ -7,12 +7,20 @@
              xmlns:viewmodels="clr-namespace:_03_CobtactAppWpf.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="{Binding Title}" FontSize="22"/>
-
-        <StackPanel Grid.Row="2"   >
+    <!--<TextBlock Text="{Binding Title}" FontSize="22"/>-->
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MinWidth="200" />
+            <ColumnDefinition Width="200" MinWidth="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Margin="0,0,0,278" Grid.RowSpan="3">
             <TextBlock Text="Add a Firstname" />
-            <TextBox Text="{Binding Contact}" Padding="2" Margin="0 1 0 10"  />
+            <TextBox Text="{Binding Firstname}" Padding="2" Margin="0 1 0 10"  />
             <TextBlock Text="Add a Lastname" />
             <TextBox Text="{Binding Lastname}" Width="200" Padding="2" Margin="0 1 0 10" />
             <TextBlock Text="Add a Email" />
@@ -23,10 +31,30 @@
             <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
             <TextBlock Text="Add a postalcode" />
             <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a city" />
-            <TextBox Text="{Binding City}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <Button Command="{Binding AddCommand}" Content="ADD Contact" Padding="8" />
+            <TextBlock Text="Add a Phonenumber" />
+            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add an adress" />
+            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add a postalcode" />
+            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
+
+
+
         </StackPanel>
 
+        <StackPanel Grid.Column="1" Margin="0,0,0,278" Grid.RowSpan="3">
+            
+            <TextBlock Text="Add a Phonenumber" />
+            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add an adress" />
+            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
+            <TextBlock Text="Add a postalcode" />
+            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
+          
+           
+            
+
+        </StackPanel>
+        <Button Command="{Binding AddContactCommand}" Content="ADD Contact" Padding="8" Grid.Column="1" Margin="10,198,370,164" Grid.Row="2" />
     </Grid>
 </UserControl>
