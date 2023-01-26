@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _03_CobtactAppWpf.MVVM.ViewModels
 {
@@ -25,13 +26,26 @@ namespace _03_CobtactAppWpf.MVVM.ViewModels
         [RelayCommand]
         public void Remove()
         {
+
+
             ContactService.Remove(SelectedContact);
         }
 
         [RelayCommand]
         public void Update()
         {
-            ContactService.Update(SelectedContact);
+            if (MessageBox.Show("Update Contact", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                // No action needed.
+            }
+            else
+            {
+                ContactService.Update(SelectedContact);
+            }
+
+
+
+            
             
         }
 

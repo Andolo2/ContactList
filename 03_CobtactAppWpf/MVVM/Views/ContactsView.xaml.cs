@@ -37,19 +37,22 @@ namespace _03_CobtactAppWpf.MVVM.Views
 
         private void btn_Remove_Click(object sender, RoutedEventArgs e)
         {
-            var button = (Button)sender;
-            var contact = (ContactModel)button.DataContext;
 
-            ContactService.Remove(contact);
+            if (MessageBox.Show("Update Contact", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                // No action needed.
+            }
+            else
+            {
+                var button = (Button)sender;
+                var contact = (ContactModel)button.DataContext;
+
+                ContactService.Remove(contact);
+            }
+            ;
            
         }
 
-        //private void ListView_Selected(object sender, RoutedEventArgs e)
-        //{
-        //    var ListViewItem = (ListViewItem)sender;
-        //    var contact = (ContactModel)ListViewItem.DataContext;
-
-        //    MessageBox.Show(contact.DisplayName);
-        //}
+       
     }
 }
