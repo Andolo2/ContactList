@@ -24,5 +24,7 @@ namespace _03_CobtactAppWpf.MVVM.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

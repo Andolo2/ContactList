@@ -27,5 +27,14 @@ namespace _03_CobtactAppWpf.MVVM.ViewModels
         {
             ContactService.Remove(SelectedContact);
         }
+
+        [RelayCommand]
+        public void Update()
+        {
+            ContactService.Update(SelectedContact);
+            
+        }
+
+
     }
 }

@@ -8,53 +8,56 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <!--<TextBlock Text="{Binding Title}" FontSize="22"/>-->
-    <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" MinWidth="200" />
-            <ColumnDefinition Width="200" MinWidth="200"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Margin="0,0,0,278" Grid.RowSpan="3">
-            <TextBlock Text="Add a Firstname" />
-            <TextBox Text="{Binding Firstname}" Padding="2" Margin="0 1 0 10"  />
-            <TextBlock Text="Add a Lastname" />
-            <TextBox Text="{Binding Lastname}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a Email" />
-            <TextBox Text="{Binding Email}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a Phonenumber" />
-            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add an adress" />
-            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a postalcode" />
-            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a Phonenumber" />
-            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add an adress" />
-            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a postalcode" />
-            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
+    <Grid >
+
+        <Grid  Height="350" Width="525" Background="Bisque">
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="{Binding Title}" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>
+            <!--Button as a Link button using style-->
+            <Button Margin="451,5,12,288" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock TextDecorations="Underline">  
+                    <ContentPresenter />
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Navy" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!--end Button as a Link button using style-->
+            <Grid Margin="31,0,29,23" Background="White" Height="264" VerticalAlignment="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="252*" />
+                    <!--   <RowDefinition Height="12*" />-->
+                </Grid.RowDefinitions>
+
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockFirstname" Text="First Name:" VerticalAlignment="Top" Width="110" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,50,0,0" Name="textBlockLastName" Text="Last Name:" VerticalAlignment="Top" Width="110" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,80,0,0" Name="textBlockEmail" Text="Email" VerticalAlignment="Top" Width="110" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,107,0,0" Name="textBlockPhone" Text="Phone" VerticalAlignment="Top" Width="110"  />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,136,0,0" Name="textBlockAdress" Text="Adress" VerticalAlignment="Top" Width="110" Grid.RowSpan="2" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,166,0,0" Name="textBlockPostalcode" Text="Postalcode" VerticalAlignment="Top" Width="110" />
+
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Text="{Binding Firstname}" VerticalAlignment="Top" Width="222" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,50,0,0" Text="{Binding Lastname}" VerticalAlignment="Top" Width="222" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,80,0,0" Text="{Binding Email}" VerticalAlignment="Top" Width="222" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,108,0,0" Text="{Binding Phonenumber}" VerticalAlignment="Top" Width="222" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,136,0,0" Text="{Binding Adress}" VerticalAlignment="Top" Width="222" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="183,0,0,66" Text="{Binding Postalcode}"  VerticalAlignment="Bottom" Width="222" />
 
 
 
-        </StackPanel>
+                <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="183,204,0,0" Name="Submit" Command="{Binding AddContactCommand}" VerticalAlignment="Top" Width="70"  />
 
-        <StackPanel Grid.Column="1" Margin="0,0,0,278" Grid.RowSpan="3">
-            
-            <TextBlock Text="Add a Phonenumber" />
-            <TextBox Text="{Binding Phonenumber}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add an adress" />
-            <TextBox Text="{Binding Adress}" Width="200" Padding="2" Margin="0 1 0 10" />
-            <TextBlock Text="Add a postalcode" />
-            <TextBox Text="{Binding Postalcode}" Width="200" Padding="2" Margin="0 1 0 10" />
-          
-           
-            
-
-        </StackPanel>
-        <Button Command="{Binding AddContactCommand}" Content="ADD Contact" Padding="8" Grid.Column="1" Margin="10,198,370,164" Grid.Row="2" />
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

@@ -39,7 +39,15 @@ namespace _03_CobtactAppWpf.MVVM.Services
         public static void Remove(ContactModel model)
         {
             contacts.Remove(model);
+            fileService.Save(JsonConvert.SerializeObject(contacts));
         }
+
+        public static void Update(ContactModel model)
+        {
+         
+            fileService.Save(JsonConvert.SerializeObject(contacts));
+        }
+
 
         public static ObservableCollection<ContactModel> Contacts()
         {
