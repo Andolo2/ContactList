@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _01_ContactList_ConsoleApp.Services
 {
-    internal class FileService
+    public class FileService
     {
 
         public void SaveToFile(string FilePath, string content)

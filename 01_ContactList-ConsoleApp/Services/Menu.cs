@@ -17,9 +17,9 @@ using System.Collections;
 
 namespace _01_ContactList_ConsoleApp.Services
 {
-    internal class Menu : Contact
+    public class Menu : Contact
     {
-        private List<Contact> ContactList = new List<Contact>();
+        public List<Contact> ContactList = new List<Contact>();
         private FileService file = new FileService();
 
         public string FilePath { get; set; } = null!;

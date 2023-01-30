@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-            <Button Command="{Binding GoToAddContactCommand}" Height="50" Width="50" Margin=" 3 3 3 3"/>
-            <Button Command="{Binding GoToContactsCommand}" Height="50" Width="50" Margin=" 3 3 3 3"/>
+            <Button Content="Add" Command="{Binding GoToAddContactCommand}" Height="50" Width="50" Margin=" 3 3 3 3"/>
+            <Button Content="Manage" Command="{Binding GoToContactsCommand}" Height="50" Width="50" Margin=" 3 3 3 3"/>
         </StackPanel>
 
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">

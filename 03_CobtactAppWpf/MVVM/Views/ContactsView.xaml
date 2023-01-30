@@ -22,7 +22,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}" >
+            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}"  >
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type models:ContactModel}">
                         <Grid Margin="10">

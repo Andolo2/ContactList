@@ -38,7 +38,7 @@ namespace _03_CobtactAppWpf.MVVM.Views
         private void btn_Remove_Click(object sender, RoutedEventArgs e)
         {
 
-            if (MessageBox.Show("Update Contact", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            if (MessageBox.Show("Delete Contact", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
                 // No action needed.
             }
