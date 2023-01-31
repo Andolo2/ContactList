@@ -19,21 +19,13 @@ namespace _01_ContactList_ConsoleApp.Services
 {
     public class Menu : Contact
     {
-        public List<Contact> ContactList = new List<Contact>();
-        private FileService file = new FileService();
+        public List<Contact> ContactList = new List<Contact>(); // Contact list
+        private FileService file = new FileService(); // Instanciate fileservice
 
-        public string FilePath { get; set; } = null!;
+        public string FilePath { get; set; } = null!; // Get/Set the filepath
 
-        public void PopulateList()
-        {
-            var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
-            
-        }
-
-        public void MenySystem()
-        {
-
-            PopulateList();
+        public void MenySystem() // Menu system with a while loop and a switch case to enter the menu details.
+        { 
 
             Console.WriteLine("** Choose an option ** \n");
             Console.WriteLine("[1] Add a contact");
@@ -63,18 +55,21 @@ namespace _01_ContactList_ConsoleApp.Services
                 }
                 Console.WriteLine("Choose an option");
                 userInput = Console.ReadLine();
-            }
+            }    
         }
 
-        private void DeleteContact()
+        private void DeleteContact() // Try/catch statement where the user can search by firstname and remove a contact. (Added a simulated "buffer" just for fun)
         {
-
             try 
             {
                 Console.WriteLine("Enter a name to remove");
                 string nameToRemove = Console.ReadLine();
                 ContactList.RemoveAll(s => s.FirstName.Contains(nameToRemove));
                 file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList, Formatting.Indented));
+
+                Console.WriteLine("...");
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("contact deleted.");
             }
             catch
             {
@@ -82,22 +77,20 @@ namespace _01_ContactList_ConsoleApp.Services
             }
         }
 
-        private void ExitProgram()
+        private void ExitProgram() // If the user want´s to terminate the app by themselfs.
         {
             Environment.Exit(0);
         }
 
-        private void DisplayAllContacts()
-        {
+        private void DisplayAllContacts() // try/catch statement where the user can display all contacts. If the list is emtpy the user will be informed. 
+        {                                 // Prints out the first, lastname and Email.
             Console.Clear();
-            
-            bool isEmpty = !ContactList.Any();
 
             var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
 
             try
             {
-                if (isEmpty == true)
+               if(Items.Count == 0)
                 {
                     Console.WriteLine("No contacts found. ");
                 }
@@ -105,7 +98,7 @@ namespace _01_ContactList_ConsoleApp.Services
                 {
                     foreach (var print in Items)
                     {
-                        Console.WriteLine("FirstName: {0} \r\n Lastname: {1}\r\n ", print.FirstName, print.LastName);
+                        Console.WriteLine("FirstName: {0} \r\n Lastname: {1}\r\n Email: {1}\r\n ", print.FirstName, print.LastName, print.Email);
                     }
                 }
             }
@@ -115,7 +108,7 @@ namespace _01_ContactList_ConsoleApp.Services
             }
         }
 
-        private void DisplayContact()
+        private void DisplayContact() // Let´s the user search by firstname, if the contact can be found. All details will be deisplayed.
 
         {
             Console.WriteLine("Search by firstname");
@@ -126,27 +119,21 @@ namespace _01_ContactList_ConsoleApp.Services
 
             foreach (var filter in Items.Where(x => x.FirstName.Contains(searchPhrase)))
             {
-                if ( filter == null || searchPhrase == string.Empty)
+                if ( filter == null || searchPhrase == string.Empty) 
                 {
                     Console.WriteLine("No contacts found.");
                 }
               
                 else
-                {
-                    PopulateList();
+                {                 
                     Console.WriteLine("FirstName: {0} \r\n Lastname: {1} \r\n PhoneNumber: {2} \r\n Email: {3} \r\n Adress: {4} \r\n Postalcode: {5} \r\n city: {6}", filter.FirstName, filter.LastName, filter.PhoneNumber, filter.Email, filter.Adress, filter.Adress, filter.PostalCode, filter.City);
-
                 }
             }
-
-
-
         }
 
-        private void AddContact()
+        private void AddContact() // Method that let´s the user add a contact, made a very simple verification to make sure no filed is empty. Save´s to list and displays the main menu again.
         {
-            
-
+           
             Contact contact = new Contact();
             Console.WriteLine("Add firstName");
            
@@ -211,8 +198,9 @@ namespace _01_ContactList_ConsoleApp.Services
             ContactList.Add(contact);
 
             file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList));
-
+            Console.Clear();
             MenySystem();
+            
         }
     }
 }

@@ -11,17 +11,17 @@ namespace _01_ContactList_ConsoleApp.Models
     public class Contact : IContact
     {
 
-        
-        public string FirstName { get ; set ; } 
-        public string LastName { get ; set ; }
-        public string PhoneNumber { get ; set ; }
-        public string Email { get ; set ; }
-        public string Adress { get ; set ; }
-        public string PostalCode { get ; set ; }
-        public string City { get ; set ; }
+
+        public string FirstName { get; set; } = null!;
+        public string LastName { get ; set ; } = null!;
+        public string PhoneNumber { get ; set ; } = null!;
+        public string Email { get ; set ; } = null!;
+        public string Adress { get ; set ; } = null!;
+        public string PostalCode { get ; set ; } = null!;
+        public string City { get ; set ; } = null!;
 
 
-        
+
     }
 
    
