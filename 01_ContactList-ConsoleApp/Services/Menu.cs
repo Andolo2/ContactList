@@ -72,7 +72,7 @@ namespace _01_ContactList_ConsoleApp.Services
 
                     foreach (var filter in Items.Where(x => x.FirstName.Contains(nameToRemove)))
                     {
-                        Console.WriteLine("Remove contact - Y or N");
+                        Console.WriteLine("Press Y to Remove or press N to Delete contact. ");
 
                         string choice = Console.ReadLine() ?? "";
 
@@ -97,6 +97,12 @@ namespace _01_ContactList_ConsoleApp.Services
                         case "n":
                             Console.WriteLine("No contact was deleted");
                             Console.WriteLine("Press any button to continue");
+                            Console.ReadLine();
+                            Console.Clear();
+                            MenySystem();
+                            break;
+                        default:
+                            Console.WriteLine("Could not find contact, try again. ");
                             Console.ReadLine();
                             Console.Clear();
                             MenySystem();
@@ -139,6 +145,9 @@ namespace _01_ContactList_ConsoleApp.Services
                     foreach (var print in Items)
                     {
                         Console.WriteLine("FirstName: {0} \r\n Lastname: {1}\r\n Email: {1}\r\n ", print.FirstName, print.LastName, print.Email);
+                        Console.WriteLine("\r\nPress any button to continue");
+                        Console.ReadLine();
+                        Console.Clear();
                     }
                 }
             }
