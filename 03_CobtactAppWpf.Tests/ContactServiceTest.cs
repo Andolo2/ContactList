@@ -14,7 +14,7 @@ namespace _03_CobtactAppWpf.Tests
         }
 
         [Fact]
-        public void Test1()
+        public void Check_If_Title_is_Correct()
         {
             //Arrange
             string expected = "Contacts";

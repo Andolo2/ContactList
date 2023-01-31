@@ -32,7 +32,7 @@ namespace _03_CobtactAppWpf.MVVM.ViewModels
         }
 
         [RelayCommand]
-        public void Update()
+        public void Update() // Yes/No messegebox layout was found in this link: https://social.msdn.microsoft.com/Forums/vstudio/en-US/d3f223ac-7fca-486e-8939-adb46e9bf6c9/how-can-i-get-yesno-from-a-messagebox-in-wpf?forum=wpf
         {
             if (MessageBox.Show("Update Contact", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {

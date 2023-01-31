@@ -7,7 +7,7 @@ namespace _01_ContactList_ConsoleApp.Tests
     public class UnitTest
     {
         [TestMethod]
-        public void Add_Contact_To_List()
+        public void Add_Contact_To_List() // Test checks if a list is populated with a contact.
         {
             //Arrenge
             Menu file = new Menu();
