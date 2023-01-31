@@ -27,6 +27,6 @@ namespace _03_CobtactAppWpf.Tests
             //Assert
 
             Assert.Equal(expected, implemented);
-        }
+        } 
     }
 }
