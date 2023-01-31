@@ -14,6 +14,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.ComponentModel.DataAnnotations;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Collections;
+using System.Xml.Serialization;
 
 namespace _01_ContactList_ConsoleApp.Services
 {
@@ -55,6 +56,8 @@ namespace _01_ContactList_ConsoleApp.Services
                 }
                 Console.WriteLine("Choose an option");
                 userInput = Console.ReadLine();
+                Console.Clear();
+                MenySystem();
             }    
         }
 
@@ -63,13 +66,49 @@ namespace _01_ContactList_ConsoleApp.Services
             try 
             {
                 Console.WriteLine("Enter a name to remove");
-                string nameToRemove = Console.ReadLine();
-                ContactList.RemoveAll(s => s.FirstName.Contains(nameToRemove));
-                file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList, Formatting.Indented));
+                string nameToRemove = Console.ReadLine() ?? "";
 
-                Console.WriteLine("...");
-                System.Threading.Thread.Sleep(1000);
-                Console.WriteLine("contact deleted.");
+                var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
+
+                    foreach (var filter in Items.Where(x => x.FirstName.Contains(nameToRemove)))
+                    {
+                        Console.WriteLine("Remove contact - Y or N");
+
+                        string choice = Console.ReadLine() ?? "";
+
+                    switch (choice)
+                    {
+                        case "y":
+                            try
+                            {
+                                ContactList.RemoveAll(s => s.FirstName.Contains(nameToRemove));
+
+                                file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList, Formatting.Indented));
+                                Console.WriteLine("Press any button to continue");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Wrong input, try again.");
+                            }
+                            break;
+
+                        case "n":
+                            Console.WriteLine("No contact was deleted");
+                            Console.WriteLine("Press any button to continue");
+                            Console.ReadLine();
+                            Console.Clear();
+                            MenySystem();
+                            break;
+
+                    }
+                        
+                    }
+
+               
+
+              
             }
             catch
             {
@@ -91,6 +130,7 @@ namespace _01_ContactList_ConsoleApp.Services
             try
             {
                if(Items.Count == 0)
+
                 {
                     Console.WriteLine("No contacts found. ");
                 }
