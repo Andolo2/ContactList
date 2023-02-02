@@ -54,9 +54,8 @@ namespace _01_ContactList_ConsoleApp.Services
                     default: Console.WriteLine("Wrong input, try again");
                         break;
                 }
-                Console.WriteLine("Choose an option");
-                userInput = Console.ReadLine();
-                Console.Clear();
+                
+                
                 MenySystem();
             }    
         }
@@ -111,10 +110,7 @@ namespace _01_ContactList_ConsoleApp.Services
                     }
                         
                     }
-
-               
-
-              
+ 
             }
             catch
             {
@@ -131,7 +127,7 @@ namespace _01_ContactList_ConsoleApp.Services
         {                                 // Prints out the first, lastname and Email.
             Console.Clear();
 
-            var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
+            var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath)) ;
 
             try
             {
@@ -162,7 +158,7 @@ namespace _01_ContactList_ConsoleApp.Services
         {
             Console.WriteLine("Search by firstname");
            
-            string searchPhrase = Console.ReadLine();
+            string searchPhrase = Console.ReadLine() ?? "";
 
             var Items = JsonConvert.DeserializeObject<List<Contact>>(file.ReadToFile(FilePath));
 
@@ -186,11 +182,11 @@ namespace _01_ContactList_ConsoleApp.Services
             Contact contact = new Contact();
             Console.WriteLine("Add firstName");
            
-            contact.FirstName = Console.ReadLine();
+            contact.FirstName = Console.ReadLine() ?? "";
             while (string.IsNullOrEmpty(contact.FirstName))
             {
                 Console.WriteLine("Please add a firstname");
-                contact.FirstName = Console.ReadLine(); 
+                contact.FirstName = Console.ReadLine() ?? ""; 
             }
            
             Console.WriteLine("Add lastname");
@@ -198,7 +194,7 @@ namespace _01_ContactList_ConsoleApp.Services
             while (string.IsNullOrEmpty(contact.LastName))
             {
                 Console.WriteLine("Please add a LastName");
-                contact.LastName = Console.ReadLine();
+                contact.LastName = Console.ReadLine() ?? "";
             }
 
             Console.WriteLine("Add email"); // Bad validation, need to remake conditons..
@@ -207,41 +203,41 @@ namespace _01_ContactList_ConsoleApp.Services
             while (!contact.Email.Contains("@"))
             {
                 Console.WriteLine("Please add a valid Email");
-                contact.Email = Console.ReadLine();
+                contact.Email = Console.ReadLine() ?? "";
             }
 
             Console.WriteLine("Add phonenumber");
-              contact.PhoneNumber = Console.ReadLine();
+              contact.PhoneNumber = Console.ReadLine() ?? "";
             while (string.IsNullOrEmpty(contact.PhoneNumber))
             {
                 Console.WriteLine("Please add a PhoneNumber");
-                contact.PhoneNumber = Console.ReadLine();
+                contact.PhoneNumber = Console.ReadLine() ?? "";
             }
 
             Console.WriteLine("Add adress");
-              contact.Adress = Console.ReadLine();
+              contact.Adress = Console.ReadLine() ?? "";
 
             while (string.IsNullOrEmpty(contact.Adress))
             {
                 Console.WriteLine("Please add an Adress");
-                contact.Adress = Console.ReadLine();
+                contact.Adress = Console.ReadLine() ?? "";
             }
 
                Console.WriteLine("Add postalcode");
-              contact.PostalCode = Console.ReadLine();
+              contact.PostalCode = Console.ReadLine() ?? "";
 
             while (string.IsNullOrEmpty(contact.PostalCode))
             {
                 Console.WriteLine("Please add an PostalCode");
-                contact.PostalCode = Console.ReadLine();
+                contact.PostalCode = Console.ReadLine() ?? "";
             }
 
             Console.WriteLine("Add city");
-            contact.City = Console.ReadLine() ;
+            contact.City = Console.ReadLine() ?? "";
             while (string.IsNullOrEmpty(contact.City))
             {
                 Console.WriteLine("Please add an City");
-                contact.City = Console.ReadLine();
+                contact.City = Console.ReadLine() ?? "";
             }
 
             ContactList.Add(contact);
