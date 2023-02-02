@@ -71,7 +71,7 @@ namespace _01_ContactList_ConsoleApp.Services
 
                     foreach (var filter in Items.Where(x => x.FirstName.Contains(nameToRemove)))
                     {
-                        Console.WriteLine("Press Y to Remove or press N to Delete contact. ");
+                        Console.WriteLine("Press Y to Remove or press N to abort change. ");
 
                         string choice = Console.ReadLine() ?? "";
 
@@ -83,6 +83,7 @@ namespace _01_ContactList_ConsoleApp.Services
                                 ContactList.RemoveAll(s => s.FirstName.Contains(nameToRemove));
 
                                 file.SaveToFile(FilePath, JsonConvert.SerializeObject(ContactList, Formatting.Indented));
+                                Console.WriteLine("Contact was removed");
                                 Console.WriteLine("Press any button to continue");
                                 Console.ReadLine();
                                 Console.Clear();

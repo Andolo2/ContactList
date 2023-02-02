@@ -7,10 +7,10 @@
              xmlns:viewmodels="clr-namespace:_03_CobtactAppWpf.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!--<TextBlock Text="{Binding Title}" FontSize="22"/>-->
+    
     <Grid >
-
-        <Grid  Height="350" Width="525" Background="blue">
+        <!--< Found a xml form template on stackoverflow, used the base and formatted it to fit my need but i forgot the link.../>-->
+        <Grid  Height="350" Width="525" Background="Beige">
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="{Binding Title}" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>
             <!--Button as a Link button using style-->
             <Button Margin="451,5,12,288" >
